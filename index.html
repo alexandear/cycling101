@@ -157,6 +157,7 @@
   details.detail summary::-webkit-details-marker{display:none}
   details.detail summary::before{content:"+";font-size:16px;width:16px;text-align:center}
   details.detail[open] summary::before{content:"–"}
+  .participants-img{display:block;max-width:260px;width:100%;margin-top:16px;border-radius:4px;border:1px solid var(--line)}
   .homework-title{font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;
     font-size:20px;color:var(--ink);margin:22px 0 0}
 
@@ -166,7 +167,8 @@
   .video-card .frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .video-card figcaption{margin-top:8px;font-size:14px;color:var(--ink-soft)}
   .ig-row{margin:14px 0 0}
-  .ig-row iframe{margin:0 auto !important}
+  .ig-frame{width:100%;max-width:480px;height:650px;margin:0 auto;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+  .ig-frame iframe{width:100%;height:100%;border:0}
 
   /* ---- Footer ---- */
   footer{background:var(--asphalt);color:rgba(255,255,255,.7);padding:48px 0 56px;margin-top:20px}
@@ -249,12 +251,8 @@
 <footer>
   <div class="wrap">
     <div class="centerline"></div>
-    <h3>Деталі та реєстрація</h3>
-    <p>Приходьте у шоломі, з робочими гальмами та накачаними колесами. Решта — на тренуванні.</p>
-    <div class="links">
-      <a href="https://volovod.com/trainings" target="_blank" rel="noopener">volovod.com/trainings</a>
-      <a href="https://instagram.com/oleksandr.red" target="_blank" rel="noopener">instagram.com/oleksandr.red</a>
-    </div>
+    <h3>Долучитися</h3>
+    <p>Помітили помилку чи хочете доповнити програму? Сторінка відкрита на <a href="https://github.com/alexandear/cycling101" target="_blank" rel="noopener">GitHub</a> — робіть pull request.</p>
   </div>
 </footer>
 
@@ -264,6 +262,7 @@ const stages = [
     n:1, title:"Базове ознайомлення",
     goal:"Зібрати групу, оцінити рівень, дати базу безпечної групової їзди.",
     tech:"Погляд через плече без відхилення керма",
+    participants:"participants_2026-07-03.png",
     detailed:[
       ["7:30–7:37","Збір і знайомство","Кожен коротко про себе та чого хоче навчитися. Інструктор: правила безпеки (шолом, дистанція, не наскакувати на переднього). Презентація серії з 8 занять."],
       ["7:37–7:42","Переїзд до розминки","500 м колоною від паркінгу — уже перша практика дистанції та рівного темпу."],
@@ -394,9 +393,12 @@ stages.forEach(s=>{
   if(s.content){
     body=`<ul class="content-list">${s.content.map(c=>`<li>${c}</li>`).join('')}</ul>`;
   }
+  if(s.participants){
+    body+=`<details class="detail"><summary>Список учасників</summary><img class="participants-img" src="${s.participants}" alt="Список учасників"></details>`;
+  }
   if(s.detailed){
     const rows=s.detailed.map(r=>`<div class="timing-row"><div class="t">${r[0]}</div><div class="d"><strong>${r[1]}</strong><span>${r[2]}</span></div></div>`).join('');
-    body=`<details class="detail" open><summary>Детальний таймінг на 90 хв</summary><div class="timing">${rows}</div></details>`;
+    body+=`<details class="detail" open><summary>Детальний таймінг на 90 хв</summary><div class="timing">${rows}</div></details>`;
   }
   if(s.homework){
     const items=s.homework.map(h=>`<li><a href="${h[1]}" target="_blank" rel="noopener">${h[0]}</a></li>`).join('');
@@ -409,7 +411,7 @@ stages.forEach(s=>{
       body+=`<ul class="content-list">${items}</ul>`;
     }
     if(s.instagram){
-      const igCards=s.instagram.map(h=>`<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="${h[1]}" data-instgrm-version="14"><a href="${h[1]}" target="_blank" rel="noopener"></a></blockquote>`).join('');
+      const igCards=s.instagram.map(h=>`<div class="ig-frame"><iframe src="${h[1].replace(/\/?$/,'/')}embed/captioned" title="${h[0]}" loading="lazy" allowfullscreen></iframe></div>`).join('');
       body+=`<div class="ig-row">${igCards}</div>`;
     }
     if(s.links){
@@ -430,14 +432,6 @@ stages.forEach(s=>{
     </div>`;
   host.appendChild(el);
 });
-
-// ---- Instagram embeds ----
-if(document.querySelector('.instagram-media')){
-  const s=document.createElement('script');
-  s.src='https://www.instagram.com/embed.js';
-  s.async=true;
-  document.body.appendChild(s);
-}
 
 // ---- Route profile (SVG) ----
 (function(){
