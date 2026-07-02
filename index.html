@@ -157,6 +157,16 @@
   details.detail summary::-webkit-details-marker{display:none}
   details.detail summary::before{content:"+";font-size:16px;width:16px;text-align:center}
   details.detail[open] summary::before{content:"–"}
+  .homework-title{font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;
+    font-size:20px;color:var(--ink);margin:22px 0 0}
+
+  .video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:18px;margin:14px 0 0}
+  .video-card figure{margin:0}
+  .video-card .frame{position:relative;aspect-ratio:16/9;border-radius:4px;overflow:hidden;background:var(--asphalt)}
+  .video-card .frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video-card figcaption{margin-top:8px;font-size:14px;color:var(--ink-soft)}
+  .ig-row{margin:14px 0 0}
+  .ig-row iframe{margin:0 auto !important}
 
   /* ---- Footer ---- */
   footer{background:var(--asphalt);color:rgba(255,255,255,.7);padding:48px 0 56px;margin-top:20px}
@@ -258,13 +268,26 @@ const stages = [
       ["7:30–7:37","Збір і знайомство","Кожен коротко про себе та чого хоче навчитися. Інструктор: правила безпеки (шолом, дистанція, не наскакувати на переднього). Презентація серії з 8 занять."],
       ["7:37–7:42","Переїзд до розминки","500 м колоною від паркінгу — уже перша практика дистанції та рівного темпу."],
       ["7:42–7:50","Суглобова розминка","Зверху донизу (шия → плечі → руки → корпус → таз → коліна → стопи). Кожен показує одну вправу."],
-      ["7:50–8:02","Теорія на фішках","Основні жести (яма, перешкода, поворот, гальмування, звуження, зупинка). Колона та пари — коли яке шикування. Здача зміни. Роль переднього: ніколи не кидає крутити. Учасник показує здачу зміни вліво/вправо. Питання."],
-      ["8:02–8:10","Техніка: погляд назад","Спершу стоп — інструктор показує погляд через плече без «вильнути» кермом. Потім практика від повільного темпу. Базове правило будь-якого зміщення: подивись назад → покажи намір → перестройся."],
-      ["8:10–8:38","Практика — основний блок","Колоною: дистанція, рівна лінія, передача жестів. По двоє: рівняння з сусідом. Короткі часті зміни в обох варіантах. Перехід «по двоє → по одному» за командою (з поглядом назад)."],
-      ["8:38–8:50","Повороти","Гальмуємо до повороту; внутрішній задає лінію, зовнішній докручує. Практика по одному та по двоє."],
+      ["7:50–8:02","Теорія: основи групової їзди","Основні жести (яма, перешкода, поворот, гальмування, звуження, зупинка). Колона та пари — коли яке шикування. Здача зміни. Роль переднього: ніколи не кидає крутити. Учасник показує здачу зміни вліво/вправо. Питання."],
+      ["8:02–8:30","Практика — основний блок","Колоною: дистанція, рівна лінія, передача жестів. По двоє: рівняння з сусідом."],
+      ["8:30–8:38","Техблок: погляд назад","Спершу стоп — інструктор показує погляд через плече без «вильнути» кермом. Потім практика від повільного темпу. Базове правило будь-якого зміщення: подивись назад → покажи намір → перестройся. Короткі часті зміни в обох варіантах. Перехід «по двоє → по одному» за командою (з поглядом назад)."],
+      ["8:38–8:50","Техблок: повороти","Гальмуємо до повороту; внутрішній задає лінію, зовнішній докручує. Практика по одному та по двоє."],
       ["8:50–8:59","Підсумок","Повторення ключового: жести, роль переднього, здача зміни, погляд назад. План Заняття 2."],
       ["9:00","🕯️ Хвилина мовчання","Загальнонаціональна щоденна хвилина мовчання — зупиняємось, вшановуємо пам'ять."],
       ["9:01","☕ Кава","Велокафе «Лайба» біля велодоріжки в Муромці."]
+    ],
+    homework:[
+      ["Прочитати про просунуті шикування на шосе - вертушку та ешелон","https://volovod.com/must-read"]
+    ],
+    instagram:[
+      ["Сигнали та їх значення","https://www.instagram.com/reel/DZ9y-mmsvYU/"]
+    ],
+    links:[
+      ["Основи їзди в групі на шосе від Ольги Ящук","https://youtu.be/UK1V7Y-IytE?si=xdAIo6JFyV5UJwi1&t=53"],
+      ["How To Ride In A Group Of Cyclists","https://youtu.be/93dprSqdL5s?si=mZTlQRPjMP-uk8B1"],
+      ["How To Ride In A Paceline","https://youtu.be/I6LITUc8SMg?si=YvGZCtE_sMLdL1wE"],
+      ["How To Ride In A Pace Line | Cycling Group Ride Tips","https://youtu.be/HDxXRq5fo8A?si=vZgdbvy1q91UGLhv"],
+      ["Бонус ТОП 10 порад: як НЕ падати з велосипеда або ПАДАТИ безпечно","https://youtu.be/Gi-10Ps7SGE?si=NJ-Bq-u0wkngiERp"]
     ]
   },
   {
@@ -345,6 +368,14 @@ const stages = [
   }
 ];
 
+// Turns a youtu.be/<id>?t=<seconds> or youtube.com/watch?v=<id>&t=<seconds> URL into an embeddable one.
+function ytEmbed(url){
+  const u = new URL(url);
+  const id = u.hostname==='youtu.be' ? u.pathname.slice(1) : u.searchParams.get('v');
+  const start = parseInt(u.searchParams.get('t'), 10) || 0;
+  return `https://www.youtube-nocookie.com/embed/${id}${start?`?start=${start}`:''}`;
+}
+
 // ---- Render stages ----
 const host = document.getElementById('stages');
 stages.forEach(s=>{
@@ -364,6 +395,21 @@ stages.forEach(s=>{
     const rows=s.detailed.map(r=>`<div class="timing-row"><div class="t">${r[0]}</div><div class="d"><strong>${r[1]}</strong><span>${r[2]}</span></div></div>`).join('');
     body=`<details class="detail" open><summary>Детальний таймінг на 90 хв</summary><div class="timing">${rows}</div></details>`;
   }
+  if(s.homework){
+    const items=s.homework.map(h=>`<li><a href="${h[1]}" target="_blank" rel="noopener">${h[0]}</a></li>`).join('');
+    body+=`<h3 class="homework-title">Домашнє завдання</h3><ul class="content-list">${items}</ul>`;
+  }
+  if(s.links || s.instagram){
+    body+=`<h3 class="homework-title">Корисні посилання</h3>`;
+    if(s.instagram){
+      const igCards=s.instagram.map(h=>`<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="${h[1]}" data-instgrm-version="14"><a href="${h[1]}" target="_blank" rel="noopener"></a></blockquote>`).join('');
+      body+=`<div class="ig-row">${igCards}</div>`;
+    }
+    if(s.links){
+      const videoCards=s.links.map(h=>`<div class="video-card"><figure><div class="frame"><iframe src="${ytEmbed(h[1])}" title="${h[0]}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><figcaption>${h[0]}</figcaption></figure></div>`).join('');
+      body+=`<div class="video-grid">${videoCards}</div>`;
+    }
+  }
 
   el.innerHTML=`
     <div class="stage-num">${s.n}<span class="of">/ 08</span></div>
@@ -377,6 +423,14 @@ stages.forEach(s=>{
     </div>`;
   host.appendChild(el);
 });
+
+// ---- Instagram embeds ----
+if(document.querySelector('.instagram-media')){
+  const s=document.createElement('script');
+  s.src='https://www.instagram.com/embed.js';
+  s.async=true;
+  document.body.appendChild(s);
+}
 
 // ---- Route profile (SVG) ----
 (function(){
