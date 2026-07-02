@@ -279,6 +279,9 @@ const stages = [
     homework:[
       ["Прочитати про просунуті шикування на шосе - вертушку та ешелон","https://volovod.com/must-read"]
     ],
+    articles:[
+      ["Best Practices for Group Rides","https://usacycling.org/article/9-best-practices-for-group-rides"]
+    ],
     instagram:[
       ["Сигнали та їх значення","https://www.instagram.com/reel/DZ9y-mmsvYU/"]
     ],
@@ -399,8 +402,12 @@ stages.forEach(s=>{
     const items=s.homework.map(h=>`<li><a href="${h[1]}" target="_blank" rel="noopener">${h[0]}</a></li>`).join('');
     body+=`<h3 class="homework-title">Домашнє завдання</h3><ul class="content-list">${items}</ul>`;
   }
-  if(s.links || s.instagram){
+  if(s.links || s.instagram || s.articles){
     body+=`<h3 class="homework-title">Корисні посилання</h3>`;
+    if(s.articles){
+      const items=s.articles.map(h=>`<li><a href="${h[1]}" target="_blank" rel="noopener">${h[0]}</a></li>`).join('');
+      body+=`<ul class="content-list">${items}</ul>`;
+    }
     if(s.instagram){
       const igCards=s.instagram.map(h=>`<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="${h[1]}" data-instgrm-version="14"><a href="${h[1]}" target="_blank" rel="noopener"></a></blockquote>`).join('');
       body+=`<div class="ig-row">${igCards}</div>`;
