@@ -276,7 +276,8 @@ const stages = [
       ["9:01","☕ Кава","Велокафе «Лайба» біля велодоріжки в Муромці."]
     ],
     homework:[
-      ["Прочитати про просунуті шикування на шосе - вертушку та ешелон","https://volovod.com/must-read"]
+      ["Прочитати про просунуті шикування на шосе - вертушку та ешелон","https://volovod.com/must-read"],
+      ["Зробити кілька поїздок, показуючи ями, повороти та перелаштування — так, ніби їдете в групі",""]
     ],
     articles:[
       ["Best Practices for Group Rides","https://usacycling.org/article/9-best-practices-for-group-rides"]
@@ -401,7 +402,7 @@ stages.forEach(s=>{
     body+=`<details class="detail" open><summary>Детальний таймінг на 90 хв</summary><div class="timing">${rows}</div></details>`;
   }
   if(s.homework){
-    const items=s.homework.map(h=>`<li><a href="${h[1]}" target="_blank" rel="noopener">${h[0]}</a></li>`).join('');
+    const items=s.homework.map(h=>h[1]?`<li><a href="${h[1]}" target="_blank" rel="noopener">${h[0]}</a></li>`:`<li>${h[0]}</li>`).join('');
     body+=`<h3 class="homework-title">Домашнє завдання</h3><ul class="content-list">${items}</ul>`;
   }
   if(s.links || s.instagram || s.articles){
