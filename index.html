@@ -191,6 +191,10 @@
     font-size:24px;color:#fff;margin:0 0 12px}
   footer a{color:var(--signal)}
   footer .links{display:flex;flex-wrap:wrap;gap:24px;margin-top:8px}
+  footer .rules-block{margin:0 0 40px}
+  footer .rules-block p{margin:0 0 4px;color:rgba(255,255,255,.55)}
+  footer .content-list li{color:rgba(255,255,255,.85)}
+  footer .content-list li::before{background:var(--signal)}
 
   @media (max-width:640px){
     body{font-size:16px}
@@ -261,22 +265,6 @@
   </div>
 </section>
 
-<section class="rules">
-  <div class="wrap">
-    <h3>Базові правила безпеки</h3>
-    <p>Діють на кожному занятті незалежно від теми.</p>
-    <ul class="content-list">
-      <li>Шолом застібнутий завжди, гальма й колеса перевірені перед виїздом.</li>
-      <li>Тримаємо дистанцію й не робимо різких гальмувань.</li>
-      <li>Про перешкоду чи маневр попереджаємо голосом і жестом.</li>
-      <li>Рухаємось передбачувано, без різких перестроювань у групі.</li>
-      <li>Не обганяємо групу й не виїжджаємо наперед без команди.</li>
-      <li>Чуємо та виконуємо команди тренера першими.</li>
-    </ul>
-    <div class="centerline"></div>
-  </div>
-</section>
-
 <main class="stages">
   <div class="wrap" id="stages"></div>
 </main>
@@ -284,6 +272,18 @@
 <footer>
   <div class="wrap">
     <div class="centerline"></div>
+    <div class="rules-block">
+      <h3>Базові правила безпеки</h3>
+      <p>Діють на кожному занятті незалежно від теми.</p>
+      <ul class="content-list">
+        <li>Шолом застібнутий завжди, гальма й колеса перевірені перед виїздом.</li>
+        <li>Тримаємо дистанцію й не робимо різких гальмувань.</li>
+        <li>Про перешкоду чи маневр попереджаємо голосом і жестом.</li>
+        <li>Рухаємось передбачувано, без різких перестроювань у групі.</li>
+        <li>Не обганяємо групу й не виїжджаємо наперед без команди.</li>
+        <li>Чуємо та виконуємо команди тренера першими.</li>
+      </ul>
+    </div>
     <h3>Долучитися</h3>
     <p>Помітили помилку чи хочете доповнити програму? Сторінка відкрита на <a href="https://github.com/alexandear/cycling101" target="_blank" rel="noopener">GitHub</a> — робіть pull request.</p>
   </div>
@@ -541,15 +541,23 @@ stages.forEach(s=>{
   });
 })();
 
-// ---- Reveal on scroll ----
-if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion:reduce)').matches){
-  const io=new IntersectionObserver((es)=>{
-    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-  },{threshold:.12});
-  document.querySelectorAll('.stage').forEach(s=>io.observe(s));
-}else{
-  document.querySelectorAll('.stage').forEach(s=>s.classList.add('in'));
-}
+// ---- Reveal on scroll (progressive enhancement — must never leave content hidden) ----
+const stageEls=document.querySelectorAll('.stage');
+const revealAll=()=>stageEls.forEach(s=>s.classList.add('in'));
+try{
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion:reduce)').matches){
+    // No threshold: fire as soon as any part enters. A percentage threshold would never
+    // trigger for stages taller than viewport/threshold (real iOS Safari usable height is small).
+    const io=new IntersectionObserver((es)=>{
+      es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{rootMargin:'0px 0px -8% 0px'});
+    stageEls.forEach(s=>io.observe(s));
+    // Safety net: nothing stays invisible if the observer misbehaves.
+    window.addEventListener('load',()=>setTimeout(revealAll,1500));
+  }else{
+    revealAll();
+  }
+}catch(e){revealAll();}
 </script>
 </body>
 </html>
