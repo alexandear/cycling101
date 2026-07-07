@@ -125,6 +125,8 @@
     font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:32px;line-height:1;
     text-transform:uppercase;margin:2px 0 6px;letter-spacing:-.005em;
   }
+  .stage-head h2 a{color:inherit}
+  .stage-head h2 a:hover{color:var(--blue);text-decoration:none}
   .goal{color:var(--ink-soft);margin:0 0 16px;font-size:16px}
   .goal b{color:var(--ink);font-weight:600}
   .stage-body{grid-column:2}
@@ -487,7 +489,7 @@ const host = document.getElementById('stages');
 stages.forEach(s=>{
   const el = document.createElement('article');
   el.className='stage';
-  el.id='e'+s.n;
+  el.id='lesson'+s.n;
 
   let tags='';
   if(s.recap) tags+=`<span class="tag recap">↺ Повторення: ${s.recap}</span>`;
@@ -542,7 +544,7 @@ stages.forEach(s=>{
   el.innerHTML=`
     <div class="stage-num">${s.n}<span class="of">/ 08</span></div>
     <div class="stage-head">
-      <h2>${s.title}</h2>
+      <h2><a href="#lesson${s.n}">${s.title}</a></h2>
       <p class="goal"><b>Мета:</b> ${s.goal}</p>
     </div>
     <div class="stage-body full">
@@ -578,7 +580,7 @@ stages.forEach(s=>{
       ${dots}
     </svg>`;
   document.querySelectorAll('.stage-dot').forEach(d=>{
-    const go=()=>document.getElementById('e'+d.dataset.i).scrollIntoView({behavior:'smooth',block:'start'});
+    const go=()=>document.getElementById('lesson'+d.dataset.i).scrollIntoView({behavior:'smooth',block:'start'});
     d.addEventListener('click',go);
     d.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});
   });
