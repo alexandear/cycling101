@@ -162,6 +162,10 @@
   .participants-img{display:block;max-width:260px;width:100%;flex:0 0 auto;border-radius:4px;border:1px solid var(--line)}
   .participants-names{margin:0;padding-left:22px;color:var(--ink);font-weight:600}
   .participants-names li{padding:6px 0}
+  .participants-names li.instructor{color:var(--blue)}
+  .participant-links{display:inline-flex;gap:6px;vertical-align:middle;margin-left:6px}
+  .participant-links a{color:var(--ink-soft);display:inline-flex;align-items:center;gap:4px;font-family:"IBM Plex Mono",monospace;font-weight:400;font-size:13px}
+  .participant-links a:hover{color:var(--ink)}
   .homework-title{font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;
     font-size:20px;color:var(--ink);margin:22px 0 0}
   .theory{margin-top:6px}
@@ -290,13 +294,25 @@
 </footer>
 
 <script>
+const icons = {
+  instagram:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>',
+  strava:'<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M13.2 2 6.6 14.5h4l-2.1 7.5 8.9-13.6h-4.2z"/></svg>'
+};
 const stages = [
   {
     n:1, title:"Базове ознайомлення",
     goal:"Зібрати групу, оцінити рівень, дати базу безпечної групової їзди.",
     tech:"Рух колоною та парами, жести, здача зміни",
     participants:"participants_2026-07-03.png",
-    participantsList:["Катерина Писаренко","Alyona Pecherna","Oleksandr Redko","Orest Sokhar","Irina Irina","Anton Yemets","Дмитро"],
+    participantsList:[
+      {name:"Олександр",instagram:"https://instagram.com/oleksandr.red",strava:"https://www.strava.com/athletes/alexandear",instructor:true},
+      {name:"Катерина",instagram:"https://www.instagram.com/cath.peackle/",strava:"https://www.strava.com/athletes/164546529"},
+      {name:"Олена",instagram:"https://www.instagram.com/alyona.pechernaya/",strava:"https://www.strava.com/athletes/86595086"},
+      {name:"Орест",instagram:"https://www.instagram.com/orestsokhar/"},
+      {name:"Ірина",instagram:"https://www.instagram.com/irina_br9/",strava:"https://www.strava.com/athletes/115696681"},
+      {name:"Антон",instagram:"https://www.instagram.com/anton.yemets/",strava:"https://www.strava.com/athletes/24726657"},
+      {name:"Дмитро",instagram:"https://www.instagram.com/pandemoniy/",strava:"https://www.strava.com/athletes/63483286"}
+    ],
     detailed:[
       ["7:30–7:40","Збір і знайомство","Кожен коротко про себе та чого хоче навчитися. Інструктор: правила безпеки (шолом, дистанція, не наскакувати на переднього). Презентація серії з 8 занять."],
       ["7:40–7:45","Переїзд до розминки","1000 м колоною від паркінгу — уже перша практика дистанції та рівного темпу."],
@@ -453,7 +469,13 @@ stages.forEach(s=>{
   }
   if(s.participants){
     const names=s.participantsList
-      ?`<ol class="participants-names">${s.participantsList.map(p=>`<li>${p}</li>`).join('')}</ol>`
+      ?`<ol class="participants-names">${s.participantsList.map(p=>{
+          const links=[
+            p.strava?`<a href="${p.strava}" target="_blank" rel="noopener" aria-label="Strava">${icons.strava}</a>`:'',
+            p.instagram?`<a href="${p.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${icons.instagram}@${p.instagram.replace(/\/$/,'').split('/').pop()}</a>`:''
+          ].filter(Boolean).join('');
+          return `<li${p.instructor?' class="instructor"':''}>${p.name}${links?` <span class="participant-links">${links}</span>`:''}</li>`;
+        }).join('')}</ol>`
       :'';
     body+=`<details class="detail"><summary>Список учасників</summary><div class="participants-body"><img class="participants-img" src="${s.participants}" alt="Список учасників">${names}</div></details>`;
   }
