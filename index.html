@@ -376,6 +376,11 @@ const stages = [
     links:[
       ["How To Ride In A Paceline","https://youtu.be/I6LITUc8SMg?si=YvGZCtE_sMLdL1wE"],
       ["ТОП 10 порад: як НЕ падати з велосипеда або ПАДАТИ безпечно","https://youtu.be/Gi-10Ps7SGE?si=xvyiiEoiSsif8Rm0"]
+    ],
+    questions:[
+      "Назвіть три речі, які не можна робити під час їзди в групі.",
+      "Якими двома способами можна показати сигнал, коли обидві руки потрібні на кермі?",
+      "Як відбувається здача зміни лідера в парах?"
     ]
   },
   {
@@ -539,6 +544,10 @@ stages.forEach(s=>{
   }
   if(s.links || s.instagram || s.articles){
     body+=`<h3 class="homework-title">Вивчити детальніше</h3>${renderMedia(s)}`;
+  }
+  if(s.questions){
+    const items=s.questions.map(q=>`<li>${q}</li>`).join('');
+    body+=`<h3 class="homework-title">Питання для закріплення</h3><ol class="content-list">${items}</ol>`;
   }
 
   el.innerHTML=`
