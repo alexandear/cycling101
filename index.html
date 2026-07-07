@@ -141,6 +141,7 @@
 
   .content-list{margin:14px 0 0;padding:0;list-style:none}
   .content-list li{padding:6px 0 6px 20px;position:relative;color:var(--ink)}
+  .translate-link{font-size:14px;color:var(--ink-soft)}
   .content-list li::before{content:"";position:absolute;left:0;top:14px;width:8px;height:2px;background:var(--blue)}
 
   /* Detailed timing table */
@@ -174,20 +175,22 @@
     color:var(--ink);margin:16px 0 4px}
   .theory-text{margin:0;color:var(--ink-soft)}
   .theory-fig{margin:12px 0 0}
-  .theory-fig img{display:block;width:100%;max-width:460px;border-radius:4px;border:1px solid var(--line)}
+  .theory-fig img{display:block;width:100%;max-width:400px;border-radius:4px;border:1px solid var(--line)}
   .theory-cap{margin-top:6px;font-size:13px;color:var(--ink-soft)}
-  .theory-nested{margin:8px 0 0;padding-left:16px;border-left:2px solid var(--line)}
-  .theory-sub2{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:18px;
-    color:var(--ink);margin:14px 0 4px}
+  .theory-nested{margin:8px 0 0}
+  .theory-sub2{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:14px;
+    text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);margin:14px 0 4px}
 
   .video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:18px;margin:14px 0 0}
   .video-card figure{margin:0}
   .video-card .frame{position:relative;aspect-ratio:16/9;border-radius:4px;overflow:hidden;background:var(--asphalt)}
   .video-card .frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .video-card figcaption{margin-top:8px;font-size:14px;color:var(--ink-soft)}
-  .ig-row{margin:14px 0 0}
-  .ig-frame{width:100%;max-width:480px;height:650px;margin:0 auto;border:1px solid var(--line);border-radius:4px;overflow:hidden}
-  .ig-frame iframe{width:100%;height:100%;border:0}
+  .ig-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;margin:14px 0 0}
+  .ig-card figure{margin:0}
+  .ig-card .frame{position:relative;aspect-ratio:9/16;border-radius:4px;overflow:hidden;background:var(--asphalt)}
+  .ig-card .frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .ig-card figcaption{margin-top:8px;font-size:14px;color:var(--ink-soft)}
 
   /* ---- Footer ---- */
   footer{background:var(--asphalt);color:rgba(255,255,255,.7);padding:48px 0 56px;margin-top:20px}
@@ -224,7 +227,7 @@
     .tag{white-space:normal}
 
     .video-grid{grid-template-columns:1fr}
-    .ig-frame{height:560px}
+    .ig-grid{grid-template-columns:1fr}
     .participants-img{max-width:100%}
   }
 
@@ -241,9 +244,9 @@
     <p class="eyebrow">Cycling 101 · Група S</p>
     <h1>Тренування<span class="sub">для новачків</span></h1>
     <p class="subtitle">Підготовка до <a href="https://velosotka.github.io/" target="_blank" rel="noopener">Київської Сотки</a></p>
-    <p class="lede">Вісім тренувань по <b>90 хвилин</b>, які роблять кожного впевненішим і безпечнішим у групі.</p>
+    <p class="lede">Вісім тренувань по <b>90 хвилин</b>, які зроблять кожного впевненішим і безпечнішим у групі.</p>
     <p class="note">Тренування від команди <a href="https://volovod.com" target="_blank" rel="noopener">Sigma Software - Unicorn</a> проводить <a href="https://instagram.com/oleksandr.red" target="_blank" rel="noopener">Олександр Редько</a></p>
-    <a class="cta" href="https://volovod.com/trainings" target="_blank" rel="noopener">Реєстрація на тренування →</a>
+    <a class="cta" href="https://volovod.com/trainings" target="_blank" rel="noopener">Реєстрація на тренування</a>
     <div class="profile" id="profile"></div>
   </div>
 </header>
@@ -252,11 +255,11 @@
   <div class="wrap">
     <div class="meta-item"><div class="k">Занять</div><div class="v">8</div></div>
     <div class="meta-item"><div class="k">Тривалість</div><div class="v">90 хв</div></div>
-    <div class="meta-item"><div class="k">Група</div><div class="v">7–9 осіб</div></div>
-    <div class="meta-item"><div class="k">Ціль</div><div class="v">Гонка <a href="https://velosotka.github.io/" target="_blank" rel="noopener">КС</a></div></div>
-    <div class="meta-item"><div class="k">Велосипед</div><div class="v">Шосе (руль-баран)</div></div>
+    <div class="meta-item"><div class="k">Група</div><div class="v">5–10 осіб</div></div>
+    <div class="meta-item"><div class="k">Ціль</div><div class="v"><a href="https://velosotka.github.io/" target="_blank" rel="noopener">Київська Сотка</a></div></div>
+    <div class="meta-item"><div class="k">Велосипед</div><div class="v">Шосе, гравел</div></div>
     <div class="meta-item"><div class="k">Коли</div><div class="v">П'ятниця, 7:30</div></div>
-    <div class="meta-item"><div class="k">Де</div><div class="v">Труханів острів біля Північного мосту <a href="https://www.google.com/maps/place/50.490547,30.541658" target="_blank" rel="noopener">(на карті)</a></div></div>
+    <div class="meta-item"><div class="k">Де</div><div class="v">Труханів біля Північного мосту <a href="https://www.google.com/maps/place/50.490547,30.541658" target="_blank" rel="noopener">(карта)</a></div></div>
   </div>
 </section>
 
@@ -307,7 +310,7 @@ const stages = [
   {
     n:1, title:"Базове ознайомлення",
     goal:"Зібрати групу, оцінити рівень, дати базу безпечної групової їзди.",
-    tech:"Рух колоною та парами, жести, здача зміни",
+    tech:"Жести, рух колоною та парами, здача зміни",
     participants:"images/participants_2026-07-03.png",
     participantsList:[
       {name:"Олександр",instagram:"https://instagram.com/oleksandr.red",strava:"https://www.strava.com/athletes/alexandear",instructor:true},
@@ -328,12 +331,17 @@ const stages = [
       ["9:01","☕ Кава","Опційно їдемо у велокафе «Лайба»."]
     ],
     theory:[
-      {h:"Навіщо їздити в групі", text:"У групі рухатися легше й швидше: ті, хто попереду, приймають на себе вітер, а решта економить до 60% сил у «затінку». Це основа шосейних гонок і довгих виїздів.",
+      {h:"Навіщо їздити в групі", text:"У групі рухатися легше й швидше: ті, хто попереду, приймають на себе вітер, а решта економить до 60% сил у «затінку». Це основа шосейних гонок і довгих виїздів. А ще це весело.",
         img:"images/peloton-aerodynamics.jpg",
         imgAlt:"Розподіл аеродинамічного опору в пелотоні (CFD-моделювання)",
         imgLink:"https://www.sciencedirect.com/science/article/pii/S0167610518306755",
         imgCaption:"Аеродинамічний опір у пелотоні на швидкості 45 км/год залежно від кількості учасників. Джерело: Blocken et al. (2018)"},
-      {h:"Основні сигнали в групі", text:"Показуємо завчасно й дублюємо голосом, щоб команда встигла пройти від голови до хвоста. Кожен жест можна показувати двома способами: відриваючи руку від керма або, коли обидві руки потрібні на кермі, — рухом ліктя. Ліктями зручно на нерівностях, у поворотах і на швидкості. Також можна дублювати голосом.", items:[
+      {h:"Як виглядає їзда в групі на гонці зсередини", text:"", links:[
+        ["Київська Сотка 2025 очима SHATOHA","https://youtu.be/jwk9M4xmIdg?si=6pGR9MSG4bmEDc8j"]
+      ]},
+      {h:"Основні сигнали в групі", text:"Показуємо завчасно й дублюємо голосом, щоб команда встигла пройти від голови до хвоста. Кожен жест можна показувати двома способами: відриваючи руку від керма або, коли обидві руки потрібні на кермі, — рухом ліктя. Ліктями зручно на нерівностях, у поворотах і на швидкості. Також можна дублювати голосом.", instagram:[
+        ["Сигнали та їх значення","https://www.instagram.com/reel/DZ9y-mmsvYU/"]
+      ], items:[
         {h:"Поворот", text:"Витягнута вбік рука в напрямку повороту."},
         {h:"Перешкода / об'їзд", text:"Рука за спиною, долоня показує з того боку, з якого об'їжджаємо, і махає в бік, куди йде група. Голосом «правіше» / «лівіше»."},
         {h:"Яма", text:"Опущена вниз рука з витягнутим пальцем указує на яму збоку від траєкторії. Якщо обидві руки на кермі — показуємо ліктем або кистю: не відриваючи руки, витягуємо пальці вниз у бік ями. Дублюємо голосом «яма»."},
@@ -345,7 +353,10 @@ const stages = [
         {h:"Перелаштування колони", text:"По двоє — піднятий вгору знак із двох пальців означає, що «шикуємось парами». По одному — один палець вгору, стаємо «в колону по одному». Дублюємо голосом, перелаштовуємось плавно, без наскоків."},
         {h:"Підйом на ноги", text:"Коли встаєш із сідла, велосипед на мить смикається назад і може наскочити той, хто їде позаду. Попереджаємо ліктями, кистями на кермі або голосом «встаю»."}
       ]},
-      {h:"Шикування", text:"Існує декілька основних групових шикувань: командою, парами та інші, більш просунуті (вертушка, ешелон).", items:[
+      {h:"Шикування", text:"Існує декілька основних групових шикувань: командою, парами та інші, більш просунуті (вертушка, ешелон).", links:[
+        ["Основи їзди в групі на шосе від Ольги Ящук (див. з 53 сек.)","https://youtu.be/UK1V7Y-IytE?si=xdAIo6JFyV5UJwi1&t=53"],
+        ["GCN: How To Ride In A Group Of Cyclists","https://youtu.be/93dprSqdL5s?si=mZTlQRPjMP-uk8B1"]
+      ], items:[
         {h:"Командою (колоною, по одному)", text:"Їдемо стрункою колоною одне за одним. Передній тримає темп, втомившись — здає зміну й іде в хвіст. Робоче для груп від 2 до 10 осіб."},
         {h:"Парами (по двоє)", text:"Дві рівні колони поруч — найзручніше для спокійної їзди великою групою. Пара відпрацьовує спереду й разом іде в хвіст."},
         {h:"Перешикування (з команди в пари і навпаки)", text:"Пари сходяться в одну колону як застібання блискавки: передній лівий лідирує, передній правий стає другим колесом, далі решта по черзі вливаються — лівий, правий, лівий. Назад у пари розкладаємось так само по черзі, тримаючи однаковий темп в обох лініях."}
@@ -358,17 +369,11 @@ const stages = [
       ["Зробити кілька поїздок, показуючи ями, повороти та перелаштування — так, ніби їдете в групі",""]
     ],
     articles:[
-      ["Best Practices for Group Rides","https://usacycling.org/article/9-best-practices-for-group-rides"]
-    ],
-    instagram:[
-      ["Сигнали та їх значення","https://www.instagram.com/reel/DZ9y-mmsvYU/"]
+      ["9 найкращих практик їзди в групі (9 Best Practices for Group Rides)","https://usacycling.org/article/9-best-practices-for-group-rides","https://usacycling-org.translate.goog/article/9-best-practices-for-group-rides?_x_tr_sl=en&_x_tr_tl=uk&_x_tr_hl=en&_x_tr_pto=wapp"]
     ],
     links:[
-      ["Основи їзди в групі на шосе від Ольги Ящук","https://youtu.be/UK1V7Y-IytE?si=xdAIo6JFyV5UJwi1&t=53"],
-      ["How To Ride In A Group Of Cyclists","https://youtu.be/93dprSqdL5s?si=mZTlQRPjMP-uk8B1"],
       ["How To Ride In A Paceline","https://youtu.be/I6LITUc8SMg?si=YvGZCtE_sMLdL1wE"],
-      ["How To Ride In A Pace Line | Cycling Group Ride Tips","https://youtu.be/HDxXRq5fo8A?si=vZgdbvy1q91UGLhv"],
-      ["Бонус ТОП 10 порад: як НЕ падати з велосипеда або ПАДАТИ безпечно","https://youtu.be/Gi-10Ps7SGE?si=NJ-Bq-u0wkngiERp"]
+      ["ТОП 10 порад: як НЕ падати з велосипеда або ПАДАТИ безпечно","https://youtu.be/Gi-10Ps7SGE?si=xvyiiEoiSsif8Rm0"]
     ]
   },
   {
@@ -457,6 +462,26 @@ function ytEmbed(url){
   return `https://www.youtube-nocookie.com/embed/${id}${start?`?start=${start}`:''}`;
 }
 
+function renderMedia(m){
+  let out='';
+  if(m.articles){
+    const items=m.articles.map(h=>{
+      const translation=h[2]?` <a class="translate-link" href="${h[2]}" target="_blank" rel="noopener">(переклад)</a>`:'';
+      return `<li><a href="${h[1]}" target="_blank" rel="noopener">${h[0]}</a>${translation}</li>`;
+    }).join('');
+    out+=`<ul class="content-list">${items}</ul>`;
+  }
+  if(m.instagram){
+    const igCards=m.instagram.map(h=>`<div class="ig-card"><figure><div class="frame"><iframe src="${h[1].replace(/\/?$/,'/')}embed/captioned" title="${h[0]}" loading="lazy" allowfullscreen></iframe></div><figcaption>${h[0]}</figcaption></figure></div>`).join('');
+    out+=`<div class="ig-grid">${igCards}</div>`;
+  }
+  if(m.links){
+    const videoCards=m.links.map(h=>`<div class="video-card"><figure><div class="frame"><iframe src="${ytEmbed(h[1])}" title="${h[0]}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><figcaption>${h[0]}</figcaption></figure></div>`).join('');
+    out+=`<div class="video-grid">${videoCards}</div>`;
+  }
+  return out;
+}
+
 // ---- Render stages ----
 const host = document.getElementById('stages');
 stages.forEach(s=>{
@@ -490,8 +515,8 @@ stages.forEach(s=>{
     body+=`<details class="detail"><summary>Приблизний таймінг на 90 хв</summary><div class="timing">${rows}</div></details>`;
   }
   if(s.theory){
-    const renderBlock=(t,cls)=>{
-      const h=t.h?`<h4 class="${cls}">${t.h}</h4>`:'';
+    const renderBlock=(t,cls,tag)=>{
+      const h=t.h?`<${tag} class="${cls}">${t.h}</${tag}>`:'';
       const p=t.text?`<p class="theory-text">${t.text}</p>`:'';
       let fig='';
       if(t.img){
@@ -499,10 +524,11 @@ stages.forEach(s=>{
         const img=picture(t.img, `<img src="${t.img}" alt="${t.imgAlt||''}" loading="lazy">`);
         fig=`<figure class="theory-fig">${img}${cap}</figure>`;
       }
-      const nested=t.items?`<div class="theory-nested">${t.items.map(i=>renderBlock(i,'theory-sub2')).join('')}</div>`:'';
-      return h+p+fig+nested;
+      const media=(t.instagram||t.links||t.articles)?renderMedia(t):'';
+      const nested=t.items?`<div class="theory-nested">${t.items.map(i=>renderBlock(i,'theory-sub2','h5')).join('')}</div>`:'';
+      return h+p+fig+media+nested;
     };
-    const blocks=s.theory.map(t=>renderBlock(t,'theory-sub')).join('');
+    const blocks=s.theory.map(t=>renderBlock(t,'theory-sub','h4')).join('');
     body+=`<h3 class="homework-title">Теорія</h3><div class="theory">${blocks}</div>`;
   }
   if(s.homework){
@@ -510,19 +536,7 @@ stages.forEach(s=>{
     body+=`<h3 class="homework-title">Домашнє завдання</h3><ul class="content-list">${items}</ul>`;
   }
   if(s.links || s.instagram || s.articles){
-    body+=`<h3 class="homework-title">Корисні посилання</h3>`;
-    if(s.articles){
-      const items=s.articles.map(h=>`<li><a href="${h[1]}" target="_blank" rel="noopener">${h[0]}</a></li>`).join('');
-      body+=`<ul class="content-list">${items}</ul>`;
-    }
-    if(s.instagram){
-      const igCards=s.instagram.map(h=>`<div class="ig-frame"><iframe src="${h[1].replace(/\/?$/,'/')}embed/captioned" title="${h[0]}" loading="lazy" allowfullscreen></iframe></div>`).join('');
-      body+=`<div class="ig-row">${igCards}</div>`;
-    }
-    if(s.links){
-      const videoCards=s.links.map(h=>`<div class="video-card"><figure><div class="frame"><iframe src="${ytEmbed(h[1])}" title="${h[0]}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><figcaption>${h[0]}</figcaption></figure></div>`).join('');
-      body+=`<div class="video-grid">${videoCards}</div>`;
-    }
+    body+=`<h3 class="homework-title">Вивчити детальніше</h3>${renderMedia(s)}`;
   }
 
   el.innerHTML=`
