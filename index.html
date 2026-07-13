@@ -186,6 +186,10 @@
   .theory-fig{margin:12px 0 0}
   .theory-fig img{display:block;width:100%;max-width:400px;border-radius:4px;border:1px solid var(--line)}
   .theory-cap{margin-top:6px;font-size:13px;color:var(--ink-soft)}
+  .theory-figs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:12px 0 0;max-width:640px}
+  .theory-figs .theory-fig{margin:0}
+  .theory-figs img{width:100%;max-width:100%;height:auto;border:none}
+  .theory-fig.bad .theory-cap{color:#c62828}
   .theory-nested{margin:8px 0 0}
   .theory-sub2{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:14px;
     text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);margin:14px 0 4px}
@@ -326,7 +330,7 @@ const stages = [
     n:1, title:"Базове ознайомлення",
     goal:"Зібрати групу, оцінити рівень, дати базу безпечної групової їзди.",
     tech:"Жести, рух колоною та парами, здача зміни",
-    participants:"images/participants_2026-07-03.png",
+    participants:"images/participants_1_2026-07-03.png",
     participantsList:[
       {name:"Олександр",instagram:"https://instagram.com/oleksandr.red",strava:"https://www.strava.com/athletes/alexandear",instructor:true},
       {name:"Катерина",instagram:"https://www.instagram.com/cath.peackle/",strava:"https://www.strava.com/athletes/164546529"},
@@ -394,6 +398,11 @@ const stages = [
       "Назвіть три речі, які не можна робити під час їзди в групі.",
       "Якими двома способами можна показати сигнал, коли обидві руки потрібні на кермі?",
       "Як відбувається здача зміни лідера в парах?"
+    ],
+    extra:[
+      {h:"Правила Velominati", text:"Напівжартівливий, але культовий кодекс — «правил про стиль, екіпіровку та етикет у шосейному велоспорті.", articles:[
+        ["The Rules — Velominati","https://www.velominati.com/the-rules/"]
+      ]}
     ]
   },
   {
@@ -401,8 +410,13 @@ const stages = [
     goal:"Відпрацювати оглядування назад та рух однією рукою до автоматизму.",
     recap:"Жести, рух колоною та парами",
     tech:"Поворот назад, кермування однією рукою, гальмування в групі",
-    participants:"", // TODO: додати фото та список після заняття 2
-    participantsList:[],
+    participants:"images/participants_2_2026-07-10.webp",
+    participantsList:[
+      {name:"Олександр",instagram:"https://instagram.com/oleksandr.red",strava:"https://www.strava.com/athletes/alexandear",instructor:true},
+      {name:"Катерина",instagram:"https://www.instagram.com/cath.peackle/",strava:"https://www.strava.com/athletes/164546529"},
+      {name:"Орест",instagram:"https://www.instagram.com/orestsokhar/"},
+      {name:"Володимир",instagram:"https://www.instagram.com/priadka_volodymyr/",strava:"https://www.strava.com/athletes/165044567"}
+    ],
     detailed:[
       ["7:30–7:35","Збір","Коротке нагадування базових правил безпеки. План заняття."],
       ["7:35–7:45","Переїзд до розминки","Колоною, повторюємо дистанцію та жести із заняття 1."],
@@ -414,23 +428,43 @@ const stages = [
       ["9:01","☕ Кава","Опційно їдемо у велокафе «Лайба»."]
     ],
     theory:[
-      {h:"Навіщо оглядатися назад", text:"Перед будь-яким маневром — перелаштуванням, обгоном, зупинкою — потрібно бачити, що робиться позаду, і чи готова група. Це рефлекс, який тренується окремо, бо новачки часто смикають кермо в бік, куди дивляться."},
+      {h:"Повторення з попереднього уроку", text:"Коли виходимо на зміну, озираємось назад, показуємо сигнал ліктем та від'їжджаємо вбік. Показали лівим ліктем — від'їхали праворуч, правим — ліворуч.", links:[
+        ["Як виглядає здача зміни лівим ліктем від Дмитра Мельникова на реальній гонці. Дивимось очима Дениса Шатохіна","https://youtu.be/IogNBu8Kd8M"]
+      ]},
+      {h:"Навіщо оглядатися назад", text:"Перед будь-яким маневром — перелаштуванням, обгоном, зупинкою — потрібно бачити, що робиться позаду, чи готова група, чи є машина тощо. Це рефлекс, який тренується окремо, щоб новачки не смикали кермо в бік, куди дивляться."},
       {h:"Техніка повороту голови", items:[
         {h:"Плечі й кермо нерухомі", text:"Повертаємо тільки голову й трохи корпус, руки на кермі тримають напрямок незмінним."},
         {h:"Короткий погляд", text:"Озираємось на секунду-дві, одразу повертаємось поглядом уперед — довше не можна, втрачаємо контроль над дорогою попереду."},
-        {h:"Тренування на прямій", text:"Спочатку відпрацьовуємо на порожній прямій ділянці без інших учасників поруч, потім у колоні."}
+        {h:"Тренування на прямій", text:"Спочатку відпрацьовуємо на порожній прямій ділянці без інших учасників поруч, потім у колоні."},
       ]},
+      {h:"Оглядування назад з партнером", text:"Їдемо парами і кладемо руку на плече партнера — він тримає темп і напрямок, а ми спокійно озираємось назад, тримаючи рівно кермо. Так легше дивитись назад, ніж наодинці повертати корпус."},
       {h:"Кермування однією рукою", text:"Потрібне, щоб подавати сигнали, пити з фляги чи поправляти одяг, не зупиняючись. Тіло трохи центрується над кермом, лікоть вільної руки притиснутий ближче до корпусу, вага рівномірно на сідлі та педалях — тоді велосипед не «виляє»."},
       {h:"Групове гальмування без «гармошки»", text:"«Гармошка» — це коли кожен наступний гальмує різкіше за переднього і дистанція хаотично то стискається, то розтягується. Гальмуємо плавно й завчасно, дублюємо сигнал і голос «повільніше», тримаємо однаковий темп уповільнення по всій колоні."}
     ],
     homework:[
       ["Потренуватися оглядатися назад під час прямої рівної їзди, не відхиляючи кермо.",""],
-      ["Проїхати кілька разів по прямій, тримаючи кермо однією рукою.",""]
+      ["Проїхати кілька разів по прямій, тримаючи кермо однією рукою.",""],
+      ["Повчитись діставати флягу то лівою, то правою рукою, не відхиляючи кермо",""],
+    ],
+    articles:[
+     ["Їзда у групі: як не виглядати «чайнотою» (для повторення)", "https://lvivbicycle.club/articles/5"]
+    ],
+    links:[
+      ["You NEED To Learn These 6 Bike Handling Skills! (тренувати перші 4 навички)","https://youtu.be/aVwO6KYXLjo?si=tmjITFFPhoJNXhpG"],
+      ["5 Bike Skills Every Cyclist Should Know (тренувати перші 2 навички)","https://youtu.be/IyZPPEgEWnc?si=OknVpuOhjZKKm9Qs"]
     ],
     questions:[
-      "Що не можна робити руками й корпусом під час повороту голови назад?",
+      "В яких ситуаціях при руху по місту згодиться навичка оглядатись назад?",
       "Навіщо потрібно вміти кермувати однією рукою?",
       "Що таке «гармошка» під час групового гальмування і як її уникнути?"
+    ],
+    extra:[
+      {h:"Як гарно сфотографувати велосипед", text:"Поради від бренду Pure Cycles, щоб знімок велосипеда виглядав професійно.", articles:[
+        ["How to photograph your bike — Pure Cycles","https://www.purecycles.com/blogs/bicycle-news/136740359-how-to-photograph-your-bike"]
+      ], figs:[
+        {img:"images/bike_photo_yes.jpg",imgAlt:"Вдале фото велосипеда",imgCaption:"✅ Так - інший фон може ще покращити фото"},
+        {img:"images/bike_photo_no.jpg",imgAlt:"Невдале фото велосипеда",imgCaption:"❌ Ні - погано все"}
+      ]}
     ]
   },
   {
@@ -508,6 +542,29 @@ function ytEmbed(url){
   return `https://www.youtube-nocookie.com/embed/${id}${start?`?start=${start}`:''}`;
 }
 
+function renderBlock(t,cls,tag){
+  const h=t.h?`<${tag} class="${cls}">${t.h}</${tag}>`:'';
+  const p=t.text?`<p class="theory-text">${t.text}</p>`:'';
+  let fig='';
+  if(t.img){
+    const cap=t.imgCaption?`<figcaption class="theory-cap">${t.imgLink?`<a href="${t.imgLink}" target="_blank" rel="noopener">${t.imgCaption}</a>`:t.imgCaption}</figcaption>`:'';
+    const img=picture(t.img, `<img src="${t.img}" alt="${t.imgAlt||''}" loading="lazy">`);
+    fig=`<figure class="theory-fig">${img}${cap}</figure>`;
+  }
+  let figs='';
+  if(t.figs){
+    const cards=t.figs.map(f=>{
+      const cap=f.imgCaption?`<figcaption class="theory-cap">${f.imgCaption}</figcaption>`:'';
+      const img=picture(f.img, `<img src="${f.img}" alt="${f.imgAlt||''}" loading="lazy">`);
+      return `<figure class="theory-fig${f.bad?' bad':''}">${img}${cap}</figure>`;
+    }).join('');
+    figs=`<div class="theory-figs">${cards}</div>`;
+  }
+  const media=(t.instagram||t.links||t.articles)?renderMedia(t):'';
+  const nested=t.items?`<div class="theory-nested">${t.items.map(i=>renderBlock(i,'theory-sub2','h5')).join('')}</div>`:'';
+  return h+p+fig+figs+media+nested;
+}
+
 function renderMedia(m){
   let out='';
   if(m.articles){
@@ -561,19 +618,6 @@ stages.forEach(s=>{
     body+=`<details class="detail"><summary>Приблизний таймінг на 90 хв</summary><div class="timing">${rows}</div></details>`;
   }
   if(s.theory){
-    const renderBlock=(t,cls,tag)=>{
-      const h=t.h?`<${tag} class="${cls}">${t.h}</${tag}>`:'';
-      const p=t.text?`<p class="theory-text">${t.text}</p>`:'';
-      let fig='';
-      if(t.img){
-        const cap=t.imgCaption?`<figcaption class="theory-cap">${t.imgLink?`<a href="${t.imgLink}" target="_blank" rel="noopener">${t.imgCaption}</a>`:t.imgCaption}</figcaption>`:'';
-        const img=picture(t.img, `<img src="${t.img}" alt="${t.imgAlt||''}" loading="lazy">`);
-        fig=`<figure class="theory-fig">${img}${cap}</figure>`;
-      }
-      const media=(t.instagram||t.links||t.articles)?renderMedia(t):'';
-      const nested=t.items?`<div class="theory-nested">${t.items.map(i=>renderBlock(i,'theory-sub2','h5')).join('')}</div>`:'';
-      return h+p+fig+media+nested;
-    };
     const blocks=s.theory.map(t=>renderBlock(t,'theory-sub','h4')).join('');
     body+=`<h3 class="homework-title">Теорія</h3><div class="theory">${blocks}</div>`;
   }
@@ -587,6 +631,10 @@ stages.forEach(s=>{
   if(s.questions){
     const items=s.questions.map(q=>`<li>${q}</li>`).join('');
     body+=`<h3 class="homework-title">Питання для закріплення</h3><ol class="content-list">${items}</ol>`;
+  }
+  if(s.extra){
+    const blocks=s.extra.map(t=>renderBlock(t,'theory-sub','h4')).join('');
+    body+=`<h3 class="homework-title">Цікаве поза заняттям</h3><div class="theory">${blocks}</div>`;
   }
 
   el.innerHTML=`
