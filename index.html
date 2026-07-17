@@ -194,7 +194,7 @@
   details.detail summary::before{content:"+";font-size:16px;width:16px;text-align:center}
   details.detail[open] summary::before{content:"–"}
   .participants-body{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;margin-top:16px}
-  .participants-img{display:block;max-width:260px;width:100%;flex:0 0 auto;border-radius:4px;border:1px solid var(--line)}
+  .registered-people-img{display:block;max-width:260px;width:100%;flex:0 0 auto;border-radius:4px;border:1px solid var(--line)}
   .participants-names{margin:0;padding-left:22px;color:var(--ink);font-weight:600}
   .participants-names li{padding:6px 0}
   .participants-names li.instructor{color:var(--blue)}
@@ -266,7 +266,7 @@
 
     .video-grid{grid-template-columns:1fr}
     .ig-grid{grid-template-columns:1fr}
-    .participants-img{max-width:100%}
+    .registered-people-img{max-width:100%}
   }
 
   /* reveal */
@@ -358,8 +358,8 @@ const stages = [
     n:1, title:"Базове ознайомлення",
     goal:"Зібрати групу, оцінити рівень, дати базу безпечної групової їзди.",
     tech:"Жести, рух колоною та парами, здача зміни",
-    participants:"images/participants_1_2026-07-03.png",
-    participantsList:[
+    registeredPeople:"images/registered_people_1_2026-07-03.png",
+    participants:[
       {name:"Олександр",instagram:"https://instagram.com/oleksandr.red",strava:"https://www.strava.com/athletes/alexandear",instructor:true},
       {name:"Катерина",instagram:"https://www.instagram.com/cath.peackle/",strava:"https://www.strava.com/athletes/164546529"},
       {name:"Альона",instagram:"https://www.instagram.com/alyona.pechernaya/",strava:"https://www.strava.com/athletes/86595086"},
@@ -438,8 +438,8 @@ const stages = [
     goal:"Відпрацювати оглядування назад та рух однією рукою до автоматизму.",
     recap:"Жести, рух колоною та парами",
     tech:"Поворот назад, кермування однією рукою, гальмування в групі",
-    participants:"images/participants_2_2026-07-10.webp",
-    participantsList:[
+    registeredPeople:"images/registered_people_2_2026-07-10.webp",
+    participants:[
       {name:"Олександр",instagram:"https://instagram.com/oleksandr.red",strava:"https://www.strava.com/athletes/alexandear",instructor:true},
       {name:"Катерина",instagram:"https://www.instagram.com/cath.peackle/",strava:"https://www.strava.com/athletes/164546529"},
       {name:"Орест",instagram:"https://www.instagram.com/orestsokhar/"},
@@ -504,8 +504,8 @@ const stages = [
     goal:"Закріпити роботу парами й командою та огляд назад, напрацювати базовий контроль велосипеда на малій швидкості — баланс, повороти, гальмування, слалом.",
     recap:"Робота парами й командою, огляд назад",
     tech:"Баланс на малій швидкості, повільні повороти, екстрене гальмування, слалом",
-    participants:"images/participants_3_2026-07-17.webp",
-    participantsList:[
+    registeredPeople:"images/registered_people_3_2026-07-17.webp",
+    participants:[
       {name:"Олександр",instagram:"https://instagram.com/oleksandr.red",strava:"https://www.strava.com/athletes/alexandear",instructor:true},
       {name:"Володимир",instagram:"https://www.instagram.com/priadka_volodymyr/",strava:"https://www.strava.com/athletes/165044567"},
       {name:"Альона",instagram:"https://www.instagram.com/alyona.pechernaya/",strava:"https://www.strava.com/athletes/86595086"},
@@ -688,9 +688,9 @@ stages.forEach(s=>{
   if(s.content){
     body=`<ul class="content-list">${s.content.map(c=>`<li>${c}</li>`).join('')}</ul>`;
   }
-  if(s.participants){
-    const names=s.participantsList
-      ?`<ol class="participants-names">${s.participantsList.map(p=>{
+  if(s.registeredPeople){
+    const names=s.participants
+      ?`<ol class="participants-names">${s.participants.map(p=>{
           const links=[
             p.strava?`<a href="${p.strava}" target="_blank" rel="noopener" class="strava-link">${picture("images/strava_api_logo.png", `<img src="images/strava_api_logo.png" alt="Strava" height="14">`)}</a>`:'',
             p.instagram?`<a href="${p.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${icons.instagram}@${p.instagram.replace(/\/$/,'').split('/').pop()}</a>`:''
@@ -698,7 +698,7 @@ stages.forEach(s=>{
           return `<li${p.instructor?' class="instructor"':''}>${p.name}${links?` <span class="participant-links">${links}</span>`:''}</li>`;
         }).join('')}</ol>`
       :'';
-    const participantsImg=picture(s.participants, `<img class="participants-img" src="${s.participants}" alt="Список учасників">`);
+    const participantsImg=picture(s.registeredPeople, `<img class="registered-people-img" src="${s.registeredPeople}" alt="Список учасників">`);
     body+=`<details class="detail"><summary>Список учасників</summary><div class="participants-body">${participantsImg}${names}</div></details>`;
   }
   if(s.detailed){
