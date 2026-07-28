@@ -1,0 +1,14 @@
+# Ignore everything by default
+*
+
+# Allow only specific files and directories
+!images/
+!images/**
+!index.html
+!favicon.ico
+!favicon.svg
+!apple-touch-icon.png
+!og-image.png
+
+# Keep .assetsignore itself
+!.assetsignore
