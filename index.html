@@ -344,8 +344,8 @@ function picture(src, imgHtml){
 }
 const monthsGenitive=["січня","лютого","березня","квітня","травня","червня","липня","серпня","вересня","жовтня","листопада","грудня"];
 function formatDate(src){
-  // e.g. "images/registered_people_1_2026-07-03.png"
-  const m=src.match(/(\d{4})-(\d{2})-(\d{2})/);
+  // e.g. "images/1_registered_people_20260703.png"
+  const m=src.match(/(\d{4})(\d{2})(\d{2})/);
   if(!m) return '';
   return `${+m[3]} ${monthsGenitive[+m[2]-1]} ${m[1]}`;
 }
@@ -357,7 +357,7 @@ const stages = [
     n:1, title:"Базове ознайомлення",
     goal:"Зібрати групу, оцінити рівень, дати базу безпечної групової їзди.",
     tech:"Жести, рух колоною та парами, здача зміни",
-    registeredPeople:"images/registered_people_1_2026-07-03.png",
+    registeredPeople:"images/1_registered_people_20260703.png",
     participants:[
       {name:"Олександр",instagram:"https://instagram.com/oleksandr.red",strava:"https://www.strava.com/athletes/alexandear",instructor:true},
       {name:"Катерина",instagram:"https://www.instagram.com/cath.peackle/",strava:"https://www.strava.com/athletes/164546529"},
@@ -378,7 +378,7 @@ const stages = [
     ],
     theory:[
       {h:"Навіщо їздити в групі", text:"У групі рухатися легше й швидше: ті, хто попереду, приймають на себе вітер, а решта економить до 60% сил у «затінку». Це основа шосейних гонок і довгих виїздів. А ще це весело.",
-        img:"images/peloton-aerodynamics.jpg",
+        img:"images/1_peloton-aerodynamics.jpg",
         imgAlt:"Розподіл аеродинамічного опору в пелотоні (CFD-моделювання)",
         imgLink:"https://www.sciencedirect.com/science/article/pii/S0167610518306755",
         imgCaption:"Аеродинамічний опір у пелотоні на швидкості 45 км/год залежно від кількості учасників. Джерело: Blocken et al. (2018)"},
@@ -437,7 +437,7 @@ const stages = [
     goal:"Відпрацювати оглядування назад та рух однією рукою до автоматизму.",
     recap:"Жести, рух колоною та парами",
     tech:"Поворот назад, кермування однією рукою, гальмування в групі",
-    registeredPeople:"images/registered_people_2_2026-07-10.webp",
+    registeredPeople:"images/2_registered_people_20260710.webp",
     participants:[
       {name:"Олександр",instagram:"https://instagram.com/oleksandr.red",strava:"https://www.strava.com/athletes/alexandear",instructor:true},
       {name:"Катерина",instagram:"https://www.instagram.com/cath.peackle/",strava:"https://www.strava.com/athletes/164546529"},
@@ -459,7 +459,7 @@ const stages = [
         ["Як виглядає здача зміни лівим ліктем від Дмитра Мельникова на реальній гонці. Дивимось очима Дениса Шатохіна","https://youtu.be/IogNBu8Kd8M"]
       ]},
       {h:"Навіщо оглядатися назад", text:"Перед будь-яким маневром — перелаштуванням, обгоном, зупинкою — потрібно бачити, що робиться позаду, чи готова група, чи є машина тощо. Це рефлекс, який тренується окремо, щоб новачки не смикали кермо в бік, куди дивляться.",
-        img:"images/mvdp_stare.png",
+        img:"images/2_mvdp_stare.png",
         imgAlt:"Матьє ван дер Пул озирається назад під час гонки",
         imgLink:"https://www.threads.com/@cycling4sanity/post/DatrZNJkjEJ",
         imgCaption:"Матьє ван дер Пул: бро… ти пропустив свою зміну. Зараз я тебе дропну"},
@@ -493,8 +493,8 @@ const stages = [
       {h:"Як гарно сфотографувати велосипед", text:"Поради від бренду Pure Cycles, щоб знімок велосипеда виглядав професійно.", articles:[
         ["How to photograph your bike — Pure Cycles","https://www.purecycles.com/blogs/bicycle-news/136740359-how-to-photograph-your-bike"]
       ], figs:[
-        {img:"images/bike_photo_yes.jpg",imgAlt:"Вдале фото велосипеда",imgCaption:"✅ Так - інший фон може ще покращити фото"},
-        {img:"images/bike_photo_no.jpg",imgAlt:"Невдале фото велосипеда",imgCaption:"❌ Ні - погано все"}
+        {img:"images/2_bike_photo_yes.jpg",imgAlt:"Вдале фото велосипеда",imgCaption:"✅ Так - інший фон може ще покращити фото"},
+        {img:"images/2_bike_photo_no.jpg",imgAlt:"Невдале фото велосипеда",imgCaption:"❌ Ні - погано все"}
       ]}
     ]
   },
@@ -503,7 +503,7 @@ const stages = [
     goal:"Закріпити роботу парами й командою та огляд назад, напрацювати базовий контроль велосипеда на малій швидкості — баланс, повороти, гальмування, слалом.",
     recap:"Робота парами й командою, огляд назад",
     tech:"Баланс на малій швидкості, повільні повороти, екстрене гальмування, слалом",
-    registeredPeople:"images/registered_people_3_2026-07-17.webp",
+    registeredPeople:"images/3_registered_people_20260717.webp",
     participants:[
       {name:"Олександр",instagram:"https://instagram.com/oleksandr.red",strava:"https://www.strava.com/athletes/alexandear",instructor:true},
       {name:"Володимир",instagram:"https://www.instagram.com/priadka_volodymyr/",strava:"https://www.strava.com/athletes/165044567"},
@@ -570,7 +570,7 @@ const stages = [
     goal:"Підготувати групу до їзди на рельєфі.",
     recap:"Ротації, зміна лідера",
     tech:"Проходження поворотів / баланс на малій швидкості",
-    registeredPeople:"images/registered_people_4_2026-07-24.webp",
+    registeredPeople:"images/4_registered_people_20260724.webp",
     participants:[
       {name:"Олександр",instagram:"https://instagram.com/oleksandr.red",strava:"https://www.strava.com/athletes/alexandear",instructor:true},
       {name:"Альона",instagram:"https://www.instagram.com/alyona.pechernaya/",strava:"https://www.strava.com/athletes/86595086"},
@@ -600,12 +600,12 @@ const stages = [
     ],
     theory:[
       {h:"Повторення з попередніх уроків", text:"Пригадуємо основні позиції рук на кермі шосейного велосипеда. Кожен хват шосейного керма потрібен у своїй ситуації, між ними варто вміти вільно перемикатися:", items:[
-        {h:"На ручках гальм / на капюшонах, худс (hoods)", text:"Основна універсальна позиція, в якій проводять 80% часу в групі: руки на гумках біля манеток, пальці поруч із гальмами. Позиція зручна для спокійної їзди в групі, маневрування, для підйомів.", img:"images/position_handlebars_hoods.png", imgAlt:"Руки на ручках гальм (hoods)"},
-        {h:"У дропах (drops) / нижній хват", text:"Найаеродинамічніша й найконтрольованіша позиція. Потрібна на спусках і високій швидкості — центр ваги нижчий, гальмування ефективніше, велосипед стабільніший. Роботи командою зазвичай робляться у дропах.", img:"images/position_handlebar_drops.png", imgAlt:"Руки на нижньому хваті (drops)"},
-        {h:"На топі (tops) / верх керма", text:"Найрозслабленіша посадка для спокійної рівнинної їзди або для видачі максимуму на крутих підйомах. Тіло випрямлене, дихати легше, але гальма звідси недосяжні — не використовуємо в щільній групі чи на швидкості.", img:"images/position_handlebar_tops.png", imgAlt:"Руки на верху керма (tops)"},
+        {h:"На ручках гальм / на капюшонах, худс (hoods)", text:"Основна універсальна позиція, в якій проводять 80% часу в групі: руки на гумках біля манеток, пальці поруч із гальмами. Позиція зручна для спокійної їзди в групі, маневрування, для підйомів.", img:"images/4_position_handlebars_hoods.png", imgAlt:"Руки на ручках гальм (hoods)"},
+        {h:"У дропах (drops) / нижній хват", text:"Найаеродинамічніша й найконтрольованіша позиція. Потрібна на спусках і високій швидкості — центр ваги нижчий, гальмування ефективніше, велосипед стабільніший. Роботи командою зазвичай робляться у дропах.", img:"images/4_position_handlebar_drops.png", imgAlt:"Руки на нижньому хваті (drops)"},
+        {h:"На топі (tops) / верх керма", text:"Найрозслабленіша посадка для спокійної рівнинної їзди або для видачі максимуму на крутих підйомах. Тіло випрямлене, дихати легше, але гальма звідси недосяжні — не використовуємо в щільній групі чи на швидкості.", img:"images/4_position_handlebar_tops.png", imgAlt:"Руки на верху керма (tops)"},
       ]},
       {h:"Проходження поворотів на швидкості", text:"Заходимо в поворот ширше, дивимось крізь поворот туди, куди їдемо, і нахиляємо велосипед, а не смикаємо кермо. Внутрішня педаль угорі, зовнішня внизу під навантаженням, внутрішній лікоть зігнутий, корпус тримаємо рівно. Тиснемо з усієї сили на педаль, яка внизу. Дуже важливо дивитися вперед на вихід з повороту. Зовнішню педаль тримаємо внизу, щоб протидіяти зриву та не зачепити асфальт шатуном.",
-        img:"images/cornering_forces.jpeg",
+        img:"images/4_cornering_forces.jpeg",
         imgAlt:"Сили, що діють на велосипед у повороті",
         imgLink:"https://www.trainerroad.com/forum/t/cornering-technique/85793",
         imgCaption:"Сили, що діють на велосипед у повороті: A — рівнодійна сили тяжіння і відцентрової сили. B — сила тяжіння, тягне вниз. C — відцентрова сила, штовхає назовні повороту. Зелена стрілка — сила тертя шин об дорогу, напрямлена до центру повороту, утримує велосипедиста на дузі",
