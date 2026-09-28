@@ -26,6 +26,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<script src="site.js" defer></script>
 <style>
   :root{
     --paper:#EBECE8;
@@ -239,7 +241,10 @@
     font-size:24px;color:#fff;margin:0 0 12px}
   footer a{color:var(--signal)}
   footer .links{display:flex;flex-wrap:wrap;gap:24px;margin-top:8px}
-  footer .rules-block{margin:0 0 40px}
+  footer .rules-block{margin:0 0 40px;scroll-margin-top:20px;
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);
+    border-left:4px solid var(--signal);border-radius:12px;padding:24px 28px}
+  footer .rules-block h3{color:var(--signal)}
   footer .rules-block p{margin:0 0 4px;color:rgba(255,255,255,.55)}
   footer .content-list li{color:rgba(255,255,255,.85)}
   footer .content-list li::before{background:var(--signal)}
@@ -279,7 +284,8 @@
 </head>
 <body>
 
-<header class="hero bleed">
+<header class="hero bleed" id="top">
+    <div data-site-menu></div>
     <p class="eyebrow">Cycling 101 · Група S</p>
     <h1>Тренування<span class="sub">для новачків</span></h1>
     <p class="subtitle">Підготовка до <a href="https://velosotka.github.io/" target="_blank" rel="noopener">Київської Сотки</a></p>
@@ -319,7 +325,7 @@
 
 <footer class="bleed">
   <hr class="centerline">
-  <section class="rules-block">
+  <section class="rules-block" id="rules">
     <h3>Базові правила безпеки</h3>
     <p>Діють на кожному занятті незалежно від теми.</p>
     <ul class="content-list">
@@ -332,9 +338,7 @@
     </ul>
   </section>
   <hr class="centerline">
-  <h3>Автор</h3>
-  <p><a href="https://github.com/alexandear" target="_blank" rel="noopener">Олександр Редько</a></p>
-  <p><a href="https://github.com/alexandear/cycling101" target="_blank" rel="noopener">Код вебсайту</a></p>
+  <div data-site-footer></div>
 </footer>
 
 <script>
@@ -722,6 +726,10 @@ const stages = [
   // How To Bunny Hop A Bike | GCN's Pro Cycling Tips https://youtu.be/-nOu5TYGvoU
   // How To Track Stand Like A Pro | Essential Cycling Skills https://youtu.be/-0VnQJF_WKQ
   // How To Wheelie | GCN's Pro Tips https://youtu.be/C2JZ31B4FBs
+  // This Skill Will Transform Your Cycling (Rotating Paceline) https://youtu.be/yvnIpMYK-AY
+  // How to Roll Turns Like a Pro (Group Riding 101) https://youtu.be/hygRE4yQW2s
+  // U-Turn Cornering Tips https://youtu.be/lLSDQAHt3Nc
+  // I Watched 100 Bike Crashes: Here is Why They Happen https://youtu.be/T3d_WqtIDA8
 ];
 
 // Turns a youtu.be/<id>, youtube.com/watch?v=<id> or youtube.com/shorts/<id> URL (with optional ?t=<seconds>) into an embeddable one.

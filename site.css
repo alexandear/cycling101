@@ -1,0 +1,37 @@
+/* Site-wide chrome shared by every page: burger menu + footer links.
+   Relies on the design tokens (--signal, --card, ...) defined by each page. */
+
+/* ---- Burger menu ---- */
+.menu{position:absolute;top:20px;right:max(24px,calc((100% - 912px) / 2));z-index:20}
+.menu-toggle{
+  list-style:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;
+  width:44px;height:44px;border:1px solid rgba(255,255,255,.4);border-radius:10px;color:#fff;
+}
+.menu-toggle::-webkit-details-marker{display:none}
+.menu-toggle:hover,.menu[open] .menu-toggle{border-color:var(--signal);color:var(--signal)}
+.menu-panel{
+  position:absolute;top:52px;right:0;min-width:200px;padding:8px;
+  display:flex;flex-direction:column;background:var(--card);color:var(--ink);
+  border:1px solid var(--line-strong);border-radius:10px;box-shadow:0 12px 34px rgba(0,0,0,.28);
+}
+.menu-panel a{padding:11px 14px;border-radius:6px;color:var(--ink);font-weight:600}
+.menu-panel a:hover{background:var(--paper);text-decoration:none}
+.menu-sep{height:1px;margin:6px 8px;background:var(--line)}
+/* Reserve room for the burger so the eyebrow's line stops before it. */
+.eyebrow{padding-right:56px}
+.eyebrow a{color:inherit;text-decoration:none}
+.eyebrow a:hover{opacity:.8}
+
+/* ---- Footer links ---- */
+.footer-nav{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:14px 30px;
+  margin:36px 0 0;padding-top:28px;border-top:1px solid rgba(255,255,255,.16);
+  font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:13px;
+  letter-spacing:.12em;text-transform:uppercase;
+}
+.footer-nav a{color:rgba(255,255,255,.7)}
+.footer-nav a:hover{color:var(--signal);text-decoration:none}
+
+@media (max-width:640px){
+  .menu{top:16px;right:18px}
+}

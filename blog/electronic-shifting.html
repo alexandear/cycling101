@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Електронна трансмісія: eTap та Di2 — Блог</title>
+<meta name="description" content="Як під'єднати SRAM eTap чи Shimano Di2 до велокомп'ютера, бачити заряд і поточну передачу та оновлювати ПЗ через застосунок.">
+
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://cycling101.pp.ua/blog/electronic-shifting.html">
+<meta property="og:title" content="Електронна трансмісія: eTap та Di2">
+<meta property="og:description" content="Як під'єднати SRAM eTap чи Shimano Di2 до велокомп'ютера, бачити заряд і поточну передачу та оновлювати ПЗ через застосунок.">
+<meta property="og:image" content="https://cycling101.pp.ua/og-image.png">
+<meta property="og:locale" content="uk_UA">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="blog.css">
+<script src="../site.js" defer></script>
+</head>
+<body>
+
+<header class="site-head bleed" id="top">
+  <div data-site-menu></div>
+  <p class="eyebrow"><a href="../">Cycling 101 · Група S</a></p>
+  <h1>Електронна трансмісія: eTap та Di2</h1>
+  <p class="lede">Як під'єднати перекидки до велокомп'ютера, бачити заряд і поточну передачу та оновлювати ПЗ через застосунок.</p>
+</header>
+
+<main class="article bleed">
+  <time datetime="2026-08-03">3 серпня 2026</time>
+
+  <p class="lead">Привіт. Сьогодні поговоримо про електронну трансмісію.</p>
+
+  <p>Помітив, що не всі використовують можливості своїх eTap/Di2 на повну. Розкрию більше.</p>
+
+  <p>Спочатку треба визначити з опису вашого велосипеда, яка у вас система — SRAM eTap чи Shimano Di2.</p>
+
+  <p>Далі — під'єднати трансмісію до велокомп'ютера (або годинника), щоб бачити залишок заряду батарей перекидок і поточну передачу.</p>
+
+  <p>І нарешті — поставити додаток на телефон, щоб оновлювати програмне забезпечення трансмісії. Так, на трансмісію теж треба ставити апдейти час від часу, щоб вона краще працювала, такий цей світ.</p>
+
+  <p>Нижче — інструкції та деталі окремо для SRAM і Shimano. Ці трансмісії між собою несумісні, мають різні додатки та трохи різні функції. Якщо цікаво, є порівняння історії цих брендів у відео.</p>
+
+  <div class="video-grid">
+    <div class="video-card"><figure>
+      <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/TcwBufUPA2o" title="Порівняння історії SRAM і Shimano" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <figcaption>Порівняння історії брендів SRAM і Shimano</figcaption>
+    </figure></div>
+  </div>
+
+  <h2>SRAM eTap AXS</h2>
+
+  <p>Групсет існує у варіантах Apex, Rival, Force, RED. Всі системи мають спільну електроніку, яка працює за однаковим принципом. У наших широтах найбільш поширена система — Rival, бо це хороший баланс між вартістю та надійністю.</p>
+
+  <p>У кожному шифтері — батарейка CR2032. Вона не заряджається, лише замінюється. SRAM обіцяє близько 2 років за нормального використання (з розрахунку 15 годин їзди на тиждень).</p>
+
+  <p>Кожна перекидка має власний знімний акумулятор. Заряджається окремим зарядним пристроєм, повний заряд — приблизно година, вистачає на ~60 годин їзди. Акумулятори передньої та задньої перекидки однакові. Якщо задня сяде в нуль посеред маршруту, можна переставити акумулятор із передньої і доїхати на одній зірці спереду.</p>
+
+  <p>Система засинає приблизно через 5 хвилин без руху й прокидається, коли ви рухаєте велосипед, прокручуєте шатуни або натискаєте пелюстку.</p>
+
+  <h3>1. Підключення до велокомп'ютера</h3>
+
+  <p>SRAM eTap передає дані по ANT+ так само, як будь-який інший датчик, як-от пульсометр.</p>
+
+  <p>Для Garmin:</p>
+  <ul>
+    <li>Розбудити задню перекидку, прокрутивши педалі назад.</li>
+    <li>Menu → Sensors → Add sensor → Shifting.</li>
+    <li>Вибрати датчик із серійним номером перекидки та «Add».</li>
+  </ul>
+
+  <p>Далі обов'язково налаштуйте кількість зубців, інакше Garmin показуватиме дефолтні цифри замість ваших. Можна скористатись <a href="https://www.sram.com/en/sram/road/campaigns/pairing-your-bike-computer-with-SRAM-etap-axs-components" target="_blank" rel="noopener">детальною інструкцією</a> з відео.</p>
+
+  <p>Після цього на екран Garmin Edge можна виводити поля із зарядом обох шифтерів і обох перекидок, а також поточну передачу спереду та ззаду. Garmin сам попередить про низький заряд батареї.</p>
+
+  <p>У Force та RED є додаткові кнопки (Bonus Buttons) на внутрішньому боці худів (hoods) — ними можна перемикати екрани велокомпа. У Rival їх немає. Для керування екранами з цих кнопок потрібен Edge 540/840/1040 або новіший.</p>
+
+  <h3>2. Додаток</h3>
+
+  <p>Усі знімки нижче — з мого велосипеда, у мене SRAM Rival AXS. Для смартфона є <a href="https://www.sram.com/en/sram/road/campaigns/axs-app" target="_blank" rel="noopener">SRAM AXS Mobile App</a>, доступний в Apple App Store та Google Play.</p>
+
+  <p>Треба зареєструватися, додати велосипед і всі чотири компоненти — лівий/правий шифтер, передня/задня перекидка (<a href="https://youtu.be/KX3tczSRN0Y" target="_blank" rel="noopener">інструкція</a>).</p>
+
+  <div class="shot-grid">
+    <figure class="shot">
+      <picture><source srcset="../images/etap_axs_app_garage.webp" type="image/webp"><img src="../images/etap_axs_app_garage.jpg" alt="Стартовий екран SRAM AXS App із доданим велосипедом" loading="lazy"></picture>
+      <figcaption>Стартовий екран із доданими велосипедами. Видно, що доступні апдейти.</figcaption>
+    </figure>
+    <figure class="shot">
+      <picture><source srcset="../images/etap_axs_app_components.webp" type="image/webp"><img src="../images/etap_axs_app_components.jpg" alt="Список компонентів велосипеда в SRAM AXS App" loading="lazy"></picture>
+      <figcaption>Список компонентів велосипеда. Щоб їх оновити, кожен треба спочатку розбудити: задню перекидку — потрусивши велосипед, передню перекидку та обидва шифтери — натиснувши на них кнопку AXS. Будити треба щоразу, бо електронна трансмісія «засинає» для максимальної економії батареї.</figcaption>
+    </figure>
+  </div>
+
+  <p>Тепер можна оновлювати ПЗ перекидок та налаштовувати кнопки. Наприклад, зробити так, щоб права кнопка додавала передачу, ліва — скидала; при цьому система сама підбирає зірочки спереду та ззаду, щоб уникнути значного перекосу ланцюга.</p>
+
+  <p>А веб-портал <a href="https://axs.sram.com" target="_blank" rel="noopener">axs.sram.com</a> (AXS Web) показує, скільки часу за тренування ви провели на тій чи іншій зірці. Щоб дані туди потрапляли, треба зв'язати акаунт AXS з Garmin Connect або Strava.</p>
+
+  <div class="shot-grid">
+    <figure class="shot">
+      <picture><source srcset="../images/etap_axs_web_gears.webp" type="image/webp"><img src="../images/etap_axs_web_gears.jpg" alt="AXS Web: час, проведений на кожній зірці за тренування" loading="lazy"></picture>
+      <figcaption>AXS Web (axs.sram.com): передні та задні зірки і час, проведений на кожній, за тренування тривалістю 2 год 27 хв. Видно, що на малій передній зірочці я їхав лише 10 хвилин.</figcaption>
+    </figure>
+  </div>
+
+  <h2>Shimano Di2</h2>
+
+  <p>Є у версіях 105 (R7100), Ultegra (R8100) і Dura-Ace (R9200). У нас поширений групсет серії 105.</p>
+
+  <p>Система теж складається з чотирьох компонентів: лівий і правий шифтер (дуал) на кермі, передня та задня перекидки. Але живлення влаштоване інакше, ніж у SRAM.</p>
+
+  <p>У кожному шифтері — батарейка CR1632 (а не CR2032, як у SRAM). В Ultegra та Dura-Ace одна на шифтер, у 105 та GRX — дві. Не заряджається, лише замінюється: приблизно раз на 2 роки для Ultegra/Dura-Ace і раз на 3–4 роки для 105.</p>
+
+  <p>Обидві перекидки живляться від однієї спільної акумуляторної батареї, яка стоїть у рамі, зазвичай у підсідельній трубі. Заряджається кабелем, який підключається до задньої перекидки. Вистачає приблизно на 1000–1500 км. Коли заряд закінчується, спочатку перестає працювати передня перекидка, а задня тримається ще кількасот перемикань. Передня перекидка споживає приблизно вчетверо більше енергії за задню — це головний фактор, що з'їдає заряд.</p>
+
+  <p>Система засинає через 30 хвилин без активності. Перевірити заряд основної батареї можна натисканням кнопки на задній перекидці.</p>
+
+  <h3>1. Підключення до велокомп'ютера</h3>
+
+  <p>Shimano Di2 так само передає дані по ANT+.</p>
+
+  <p>Для Garmin: Menu → Sensors → Add sensor → Shimano Di2 → перемкнути будь-яку передачу. Або скористатись <a href="https://youtu.be/LpSP9lucFB8" target="_blank" rel="noopener">відео</a>.</p>
+
+  <p>Після цього на екран Garmin Edge можна виводити поля із зарядом системи (одне значення на обидві перекидки), зарядом обох шифтерів і поточною передачею спереду та ззаду. Кількість зубців так само варто налаштувати вручну, інакше Garmin показуватиме дефолтні значення. Garmin автоматично попередить вас про низький заряд батареї. Повністю огляд функцій є на <a href="https://support.garmin.com/en-US/?faq=qBnD0bXiLT7g6qMyExVRc9" target="_blank" rel="noopener">сайті Garmin</a>.</p>
+
+  <p>В Ultegra та Dura-Ace є додаткові кнопки на худах — ними можна керувати екранами велокомпа або призначити їх на додаткове перемикання. У 105 їх немає.</p>
+
+  <h3>2. Додаток</h3>
+
+  <p>Для смартфона є <a href="https://bike.shimano.com/products/apps/e-tube-project-cyclist.html" target="_blank" rel="noopener">E-Tube Project Cyclist</a>. Станом на момент написання він недоступний для iPhone в українському App Store — є лише в Google Play для Android. Щоб поставити на iPhone, треба міняти регіон App Store.</p>
+
+  <p>Хороший огляд можливостей додатка є на <a href="https://velogo.com.ua/ua/blog/shimano-e-tube-review" target="_blank" rel="noopener">сайті VeloGO</a>. Я краще не розповім, бо ніколи не користувався електронною трансмісією Shimano Di2 — у мене на велосипеді SRAM.</p>
+
+  <p>По суті, в E-TUBE PROJECT Cyclist можна робити те саме, що й у SRAM AXS: оновлювати ПЗ компонентів, програмувати кнопки, налаштовувати задню перекидку. Аналог послідовного перемикання SRAM тут називається Synchronized Shift, а Semi-Synchronized Shift — це коли задня перекидка автоматично підлаштовується під перемикання передньої.</p>
+</main>
+
+<footer class="bleed">
+  <hr class="centerline" style="margin-bottom:28px">
+  <div data-site-footer></div>
+</footer>
+
+</body>
+</html>

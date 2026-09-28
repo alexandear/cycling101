@@ -5,6 +5,10 @@
 !images/
 !images/**
 !index.html
+!site.css
+!site.js
+!blog/
+!blog/**
 !favicon.ico
 !favicon.svg
 !apple-touch-icon.png
