@@ -9,9 +9,10 @@ fi
 
 IMG_DIR="$(CDPATH= cd -- "$(dirname "$0")/../images" && pwd)"
 
-for img in "$IMG_DIR"/*.jpg "$IMG_DIR"/*.jpeg "$IMG_DIR"/*.png \
-           "$IMG_DIR"/*.JPG "$IMG_DIR"/*.JPEG "$IMG_DIR"/*.PNG; do
-  [ -e "$img" ] || continue
+# Recursive: images/ has per-section subfolders (images/blog, ...).
+find "$IMG_DIR" -type f \
+  \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' \) |
+while read -r img; do
   webp="${img%.*}.webp"
   cwebp -quiet "$img" -o "$webp"
 done

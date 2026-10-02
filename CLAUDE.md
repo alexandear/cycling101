@@ -12,7 +12,9 @@ https://cycling101.pp.ua/.
   Page content (lessons, articles, participants) is rendered from JS data objects in
   the script. No build step, no framework, no dependencies.
 - `images/` — photos and charts. Each source (`.jpg`/`.png`) has a `.webp` sibling.
-- `videos/` — local video clips, git-ignored (see `.gitignore`).
+  Blog assets live in `images/blog/`; the main page uses `images/` directly.
+- `videos/` — local video clips, git-ignored (see `.gitignore`). Blog clips live in
+  `videos/blog/`, and each clip's poster is `images/<same subfolder>/<name>_poster.webp`.
 - `scripts/` — helper shell scripts (not part of the deployed site).
 - `favicon.*`, `apple-touch-icon.png`, `og-image.png` — icons and social share image.
 - `.assetsignore` — allow-list of files served by the host; keep it in sync with the
@@ -29,6 +31,7 @@ Then open http://localhost:8000.
 ## Working conventions
 
 - Edit content and layout directly in `index.html`; there is no compilation.
+- Name assets with `_`, never `-`.
 - Add images to `images/` and generate `.webp` versions with
   `scripts/convert-to-webp.sh` (requires `cwebp`).
 - Download video clips with `scripts/download-video.sh` (requires `yt-dlp`).

@@ -18,7 +18,8 @@ SECTION="$2"
 OUTPUT="${3:-out.mp4}"
 
 VIDEO_DIR="$(CDPATH= cd -- "$(dirname "$0")/.." && pwd)/videos"
-mkdir -p "$VIDEO_DIR"
+# OUTPUT may carry a subfolder, e.g. blog/krenichi-out.mp4.
+mkdir -p "$(dirname "$VIDEO_DIR/$OUTPUT")"
 
 yt-dlp \
   -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]" \

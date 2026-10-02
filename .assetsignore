@@ -4,6 +4,8 @@
 # Allow only specific files and directories
 !images/
 !images/**
+!videos/
+!videos/**
 !index.html
 !site.css
 !site.js

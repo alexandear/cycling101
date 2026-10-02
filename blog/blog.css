@@ -12,6 +12,7 @@
   --asphalt:#16181D;
 }
 *{box-sizing:border-box}
+img,iframe,video{max-width:100%}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{
@@ -84,17 +85,67 @@ a.post-card:hover{text-decoration:none;border-color:var(--line-strong)}
 .video-card figcaption{margin-top:8px;font-size:14px;color:var(--ink-soft)}
 
 .shot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin:20px 0 24px}
-.shot{margin:0}
-.shot img{display:block;width:100%;max-width:400px;height:auto;border-radius:4px;border:1px solid var(--line)}
+.shot{margin:20px 0 28px}
+/* width:auto keeps the aspect ratio while both caps apply, so a tall screenshot
+   shrinks to fit the viewport instead of pushing the caption off-screen. */
+.shot img,.shot video{
+  display:block;margin-inline:auto;
+  width:auto;height:auto;max-width:100%;max-height:60vh;
+  border-radius:4px;border:1px solid var(--line);
+}
+/* Every clip renders 480px tall whatever its aspect, so portrait and landscape
+   footage lines up down the page; width follows from the ratio. max-width still
+   wins on a narrow screen, and max-height on a short one. */
+.shot video{height:480px;width:auto;background:var(--asphalt)}
 .shot figcaption{margin-top:8px;font-size:14px;color:var(--ink-soft)}
+/* Inside a grid the figures share a row, so keep the old cap and let them
+   stretch to the cell. A standalone figure gets the full column instead. */
+.shot-grid .shot{margin:0}
+.shot-grid .shot img{width:100%;max-width:400px;max-height:none}
+
+/* ---- Embedded map ---- */
+.map{
+  display:block;width:100%;aspect-ratio:4/3;max-height:60vh;
+  border:1px solid var(--line);border-radius:4px;margin:20px 0 28px;
+}
 
 .centerline{
   border:0;height:8px;margin:36px 0 0;
   background:repeating-linear-gradient(90deg,var(--signal) 0 34px,transparent 34px 62px);opacity:.9;
 }
 
+/* ---- Download button ---- */
+.dl{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin:0 0 24px}
+.dl-btn{
+  display:inline-block;background:var(--blue);color:#fff;border-radius:4px;
+  padding:12px 20px;font-family:"Oswald",sans-serif;font-weight:600;font-size:17px;
+  text-transform:uppercase;letter-spacing:.02em;
+}
+.dl-btn:hover{background:var(--blue-deep);text-decoration:none}
+.dl-note{font-size:14px;color:var(--ink-soft)}
+
+/* ---- Cue sheet (turn-by-turn list) ---- */
+.cues{list-style:none;margin:0 0 24px;padding:0}
+.cues li{
+  display:grid;grid-template-columns:78px 24px 1fr;gap:12px;align-items:baseline;
+  margin:0;padding:10px 0;border-bottom:1px solid var(--line);color:var(--ink-soft);
+}
+.cues li:first-child{border-top:1px solid var(--line)}
+.cues .km{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:13px;color:var(--ink)}
+.cues .dir{font-weight:700;font-size:19px;line-height:1;text-align:center}
+.cues .dir-l{color:var(--blue)}
+.cues .dir-r{color:#B4480E}
+.cues .dir-u{color:#8A1C7C}
+.cues .dir-s{color:var(--line-strong)}
+.cues b{color:var(--ink)}
+/* A figure sits inside the <li> it illustrates, so it has to span the grid. */
+.cues li>.shot{grid-column:1/-1;margin:14px 0 2px}
+
+.back-link{margin-top:28px}
+
 /* ---- Footer ---- */
 footer{background:var(--asphalt);color:rgba(255,255,255,.7);padding-block:40px 48px;margin-top:24px}
+footer .centerline{margin-bottom:28px}
 footer h3{font-family:"Oswald",sans-serif;font-weight:700;text-transform:uppercase;font-size:22px;color:#fff;margin:0 0 12px}
 footer a{color:var(--signal)}
 footer p{margin:0 0 4px}
@@ -103,4 +154,7 @@ footer p{margin:0 0 4px}
   body{font-size:16px}
   .bleed{padding-inline:18px}
   .video-grid,.shot-grid{grid-template-columns:1fr}
+  .cues li{grid-template-columns:64px 20px 1fr;gap:8px}
+  .shot img,.shot video{max-height:70vh}
+  .map{aspect-ratio:3/4;max-height:70vh}
 }
